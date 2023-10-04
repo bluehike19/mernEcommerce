@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { useDarkMode } from "../context/DarkModeContext";
 import DarkModeToggle from "./DarkModeToggle";
-import Sidebar from "../assets/Sidebar";
 
 function MyNavbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -24,11 +23,6 @@ function MyNavbar() {
           top: 0,
         }}
         expand="lg">
-        <button className="btn toggle-btn" onClick={toggleSidebar}>
-          <span
-            className={`navbar-toggle-icon ${isSidebarOpen ? "open" : ""}`}
-          />
-        </button>
         <Navbar.Brand as={Link} to="/">
           blueHike
         </Navbar.Brand>
@@ -56,13 +50,12 @@ function MyNavbar() {
                 Signup
               </NavDropdown.Item>
             </NavDropdown>
-            <div className="toggle-icon">
-              <DarkModeToggle />
-            </div>
           </Nav>
+          <div className="toggle-icon">
+            <DarkModeToggle />
+          </div>
         </Navbar.Collapse>
       </Navbar>
-      {isSidebarOpen && <Sidebar />}
     </div>
   );
 }
