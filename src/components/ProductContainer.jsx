@@ -45,7 +45,7 @@ const ProductContainer = ({ product }) => {
   const BACKEND = "http://localhost:3000";
 
   return (
-    <div className="card">
+    <div className="card light-mode">
       <div className="image">
         <img src={`${BACKEND}/images/products/${image}`} alt={name} />
       </div>

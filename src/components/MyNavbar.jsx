@@ -3,14 +3,16 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { useDarkMode } from "../context/DarkModeContext";
 import DarkModeToggle from "./DarkModeToggle";
+import {
+  BsFillCartCheckFill,
+  BsHouseDoorFill,
+  BsPersonPlusFill,
+  BsPersonFillLock,
+} from "react-icons/bs";
 
 function MyNavbar() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { isDarkMode } = useDarkMode();
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
   return (
     <div>
       <Navbar
@@ -31,6 +33,7 @@ function MyNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto always-visible">
             <Nav.Link as={Link} to="/">
+              <BsHouseDoorFill className="icon" />
               Home
             </Nav.Link>
             <Nav.Link as={Link} to="/products">
@@ -40,13 +43,16 @@ function MyNavbar() {
               Products
             </Nav.Link>
             <Nav.Link as={Link} to="/cart">
+              <BsFillCartCheckFill className="icon" />
               Cart
             </Nav.Link>
-            <NavDropdown title="Account" id="basic-nav-dropdown">
+            <NavDropdown title=" Account" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/login">
+                <BsPersonFillLock className="icon" />
                 Login
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/signup">
+                <BsPersonPlusFill className="icon" />
                 Signup
               </NavDropdown.Item>
             </NavDropdown>
