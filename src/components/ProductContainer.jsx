@@ -1,7 +1,7 @@
 import React from "react";
 
 const ProductContainer = ({ product }) => {
-  const { id, image, rating, name, price, keywords, type } = product;
+  const { id, image, rating, name, price, keywords } = product;
 
   //function to render start rating
   const renderRatingStars = (rating) => {
@@ -49,15 +49,15 @@ const ProductContainer = ({ product }) => {
       <div className="image">
         <img src={`${BACKEND}/images/products/${image}`} alt={name} />
       </div>
-      <div className="product-details">
+      <button className="store">Offical store</button>
+      <div className="card-details">
         <h2 className="name">{name}</h2>
+        <p className="price">Price: ${price.toFixed(2)}</p>
         <div className="product-rating">
           {renderRatingStars(rating.stars)}
           <span className="rating-count">({rating.count}) reviews</span>
         </div>
-        <p>Price: ${price.toFixed(2)}</p>
-        <p>Keyword: {keywords.join(", ")}</p>
-        <p>Type: {type}</p>
+        <p className="keyword">Keyword: {keywords.join(", ")}</p>
         <button className="add-to-cart-btn">Add to Cart</button>
       </div>
     </div>
