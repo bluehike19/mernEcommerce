@@ -32,11 +32,11 @@ function MyNavbar() {
             <Nav.Link as={Link} to="/products">
               Products
             </Nav.Link>
-            <Nav.Link as={Link} to="/products">
-              Products
-            </Nav.Link>
             <Nav.Link as={Link} to="/cart">
               Cart
+            </Nav.Link>
+            <Nav.Link as={Link} to="/dashboard">
+              Dashboard
             </Nav.Link>
             <NavDropdown title=" Account" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/signin">

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
+  const navigate = useNavigate();
+  // const history = useHistory();
   const location = useLocation();
   const isSignIn = location.pathname === "/signin";
 
@@ -10,12 +13,23 @@ const Auth = () => {
     password: "",
   });
 
+  const [successMessage, setSuccesMessage] = useState("");
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (isSignIn) {
+      setSuccesMessage("Welcome back! You are now logged in to your Account");
+    } else {
+      setSuccesMessage("Welcome! You have created an Account");
+    }
+    setTimeout(() => {
+      navigate("/dashboard");
+    }, 3000);
   };
 
   return (
@@ -71,6 +85,9 @@ const Auth = () => {
             </div>
           </div>
         </div>
+        {successMessage && (
+          <div className="alert alert-success mt-3">{successMessage}</div>
+        )}
       </div>
       <div style={waveImage}></div>
       <div style={waveImageStyle}></div>
@@ -106,23 +123,5 @@ const waveImageStyle = {
   background: 'url("./src/assets/images/background-wave.png") repeat-x',
   animation: "wave 5s infinite linear",
 };
-
-// const waveStyles = {
-//   position: "relative",
-//   width: "19.45em",
-//   height: "25.75em",
-//   background: "",
-// };
-
-// const waveImageStyle = {
-//   position: "absolute",
-//   bottom: "-70px",
-//   left: "0",
-//   width: "350%",
-//   height: "100%",
-//   zIndex: "-1",
-//   background: 'url("./src/assets/images/background-wave.png") repeat-x',
-//   animation: "wave 5s infinite linear",
-// };
 
 export default Auth;
