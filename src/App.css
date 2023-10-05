@@ -73,7 +73,7 @@ body.dark-mode {
 }
 
 
-.card {
+.product-card {
   max-width: 12em;
   max-height: auto;
   /* border: 1px solid #ccc; */
@@ -87,12 +87,12 @@ body.dark-mode {
   color: #ffffff;
 }
 
-.card.light-mod {
+.product-card.light-mod {
   background-color: #ffffff;
   color: #333;
 }
 
-.card:hover {
+.product-card:hover {
   transform: scale(1.02);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -186,10 +186,67 @@ margin-top: -10px;
   margin-top: 8px;
 }
 
-.card:hover .add-to-cart-btn {
+.product-card:hover .add-to-cart-btn {
   opacity: 1;
 }
 
 .add-to-cart-btn:hover {
   background-color: rgb(248, 183, 5);
+}
+
+.login {
+  height: 550px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: -100px;
+  margin: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: tranform 0.3s, box-shadow 0.2s;
+
+}
+
+
+.login:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@media(max-width: 450px) {
+  .login {
+    height: 450px;
+    width: 300px;
+  }
+  .card-login {
+    height: 350px;
+    width: 250px;
+  }
+}
+
+.card-login {
+background-color: #020811;
+color: #ffffff;
+padding: 10px;
+height: 500px;
+width: 450px;
+border-radius: 20px;
+}
+
+.input-name {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.submit-btn {
+  margin-top: 60px;
+  width: 250px;
+  margin-left: 75px;
+  font-size: 22px;
+}
+
+.footer-link {
+  text-decoration: none;
+  margin-left: 20px;
 }

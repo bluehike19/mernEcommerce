@@ -21,7 +21,8 @@ function AppContent() {
             <Route path="/products" Component={ProductListing} />
             <Route path="/products/:id" Component={ProductDetail} />
             <Route path="/cart" Component={Cart} />
-            <Route path="/login" Component={Auth} />
+            <Route path="/signin" Component={Auth} />
+            <Route path="/signup" Component={Auth} />
           </Routes>
         </div>
       </Router>
