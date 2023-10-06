@@ -1,7 +1,9 @@
 import React from "react";
+import { useCart } from "../context/CartContext";
 
 const ProductContainer = ({ product }) => {
-  const { id, image, rating, name, price, keywords } = product;
+  const { image, rating, name, price, keywords } = product;
+  const { addToCart } = useCart();
 
   //function to render start rating
   const renderRatingStars = (rating) => {
@@ -58,7 +60,9 @@ const ProductContainer = ({ product }) => {
           <span className="rating-count">({rating.count}) reviews</span>
         </div>
         <p className="keyword">Keyword: {keywords.join(", ")}</p>
-        <button className="add-to-cart-btn">Add to Cart</button>
+        <button onClick={() => addToCart(product)} className="add-to-cart-btn">
+          Add to Cart
+        </button>
       </div>
     </div>
   );

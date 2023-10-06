@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -22,6 +23,13 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // try {
+    //   const response = await axios.post('/api/auth/signup', {
+    //     email: formData.email,
+    //     password: formData.password,
+    //   })
+    // }
+
     if (isSignIn) {
       setSuccesMessage("Welcome back! You are now logged in to your Account");
     } else {
@@ -29,7 +37,7 @@ const Auth = () => {
     }
     setTimeout(() => {
       navigate("/dashboard");
-    }, 3000);
+    }, 5000);
   };
 
   return (
@@ -86,7 +94,9 @@ const Auth = () => {
           </div>
         </div>
         {successMessage && (
-          <div className="alert alert-success mt-3">{successMessage}</div>
+          <div className="alert alert-success fixed-bottom mb-4 confirmation">
+            {successMessage}
+          </div>
         )}
       </div>
       <div style={waveImage}></div>

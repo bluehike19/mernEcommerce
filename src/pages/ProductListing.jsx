@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductContainer from "../components/ProductContainer";
+import MyErrorBoundary from "../components/MyErrorBoundary";
 
 const ProductListing = () => {
   const [products, setProducts] = useState([]);
@@ -33,27 +34,15 @@ const ProductListing = () => {
   // const BACKEND = "http://localhost:3000";
 
   return (
-    <div className="App">
-      <h1>Product List</h1>
-      {products.map((product) => (
-        <ProductContainer key={product.id} product={product} />
-      ))}
-    </div>
-
-    //   <div >
-    //     {products.map((product) => (
-    //       <div key={product.id}>
-    //         <img
-    //           src={`${BACKEND}/images/products/${product.image}`}
-    //           alt={product.name}
-    //         />
-    //         {/* <img src={product.image} alt="" /> */}
-    //         <h2>{product.name}</h2>
-    //         <p>{product.description}</p>
-    //         <p>${product.price.toFixed(2)}</p>
-    //       </div>
-    //     ))}
-    //   </div>
+    <>
+      <MyErrorBoundary>
+        <div className="app-container">
+          {products.map((product) => (
+            <ProductContainer key={product.id} product={product} />
+          ))}
+        </div>
+      </MyErrorBoundary>
+    </>
   );
 };
 
